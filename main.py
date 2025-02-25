@@ -76,7 +76,7 @@ async def send_message_periodically():
             if new_message:
                 channel = client.get_channel(CHANNEL_ID)
                 if new_message == "Offline":
-                    await channel.send("Status: Offline")
+                    await channel.send("`Status: Offline`")
                 else:
                     await channel.send(f"`Status: {new_message}`")
                 last_message = new_message
