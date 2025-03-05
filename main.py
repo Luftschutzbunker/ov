@@ -2,8 +2,9 @@ import discord
 import asyncio
 import requests
 from bs4 import BeautifulSoup
+from colorama import Fore
 
-print("""
+ov = """
  ▒█████   ██▒   █▓
 ▒██▒  ██▒▓██░   █▒
 ▒██░  ██▒ ▓██  █▒░ has
@@ -13,8 +14,10 @@ print("""
   ░ ▒ ▒░    ░ ░░  
 ░ ░ ░ ▒       ░░  
     ░ ░        ░  
-              ░
-""")
+              ░   
+"""
+print(Fore.RED, ov, Fore.RESET)
+
 
 target = input("> enter target: ").strip()
 
