@@ -86,9 +86,11 @@ async def send_message_periodically():
             else:
                 print("No message data found.")
         else:
-            print(f"Status hasn't changed. Current status: {new_message}")
-
-        await asyncio.sleep(300)  # 300 seconds = checks every 5 mins. Plancke itself checks like every 5 mins so it's not always accurate
+            if new_message == "Offline":
+                print(Fore.RED + f"Status hasn't changed. Current status: {new_message}" + Fore.RESET)
+            else:
+                print(Fore.GREEN + f"Status hasn't changed. Current status: {new_message}" + Fore.RESET)
+        await asyncio.sleep(10)  # 300 seconds
 
 @client.event
 async def on_ready():
@@ -97,7 +99,10 @@ async def on_ready():
 
     initial_status = scrape_message()
     if initial_status:
-        print(f"Initial Status: {initial_status}")
+        if initial_status == "Offline":
+            print(Fore.RED + f"Initial Status: {initial_status}" + Fore.RESET)
+        else:
+            print(Fore.GREEN + f"Initial Status: {initial_status}" + Fore.RESET)
     else:
         print("Could not retrieve initial status.")
 
