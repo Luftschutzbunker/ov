@@ -90,7 +90,7 @@ async def send_message_periodically():
                 print(Fore.RED + f"Status hasn't changed. Current status: {new_message}" + Fore.RESET)
             else:
                 print(Fore.GREEN + f"Status hasn't changed. Current status: {new_message}" + Fore.RESET)
-        await asyncio.sleep(10)  # 300 seconds
+        await asyncio.sleep(300)  # 300 seconds
 
 @client.event
 async def on_ready():
